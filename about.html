@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About me | Alex Siebenaler</title>
+<meta name="description" content="About Alex Siebenaler: majors, goals and interests.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2349306e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-weight='700' font-size='15' fill='%23febd11' text-anchor='middle'%3EAS%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html">Alex Siebenaler</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    <nav id="nav" aria-label="Main"><ul><li><a href="index.html">Home</a></li><li><a href="about.html" aria-current="page">About me</a></li><li><a href="honors.html">Honors Program</a></li><li><a href="leadership.html">Leadership</a></li><li><a href="research.html">Research</a></li><li><a href="intercultural.html">Intercultural</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+  </div>
+</header>
+<main id="main">
+<section class="page-head"><div class="wrap"><h1>About me</h1><p class="lede">Junior at Minnesota State University, Mankato, studying quantitative finance and accounting.</p></div></section>
+<section class="section">
+  <div class="wrap about-grid">
+    <figure class="about-photo"><img src="https://static.wixstatic.com/media/487fb0_ee73f05dbf134b839bee34d99ba84827~mv2.jpg/v1/fill/w_840,h_800,al_c,q_85/IMG_2680.jpg" alt="Alex Siebenaler" width="420" height="400"></figure>
+    <div class="prose">
+      <dl class="facts">
+        <dt>Majors</dt><dd>Quantitative Finance and Accounting</dd>
+        <dt>Minor</dt><dd>Business Analytics</dd>
+        <dt>Graduation</dt><dd>Spring 2028</dd>
+        <dt>Involvement</dt><dd>Honors Program; President, Maverick Entrepreneurship Club; Beta Alpha Psi; Student Executive Team</dd>
+      </dl>
+      <h2>Where I'm headed</h2>
+      <p>I plan to work in accounting and finance after graduation. Longer term, I want to keep building businesses. I already run MN Apex Solutions, a Minnesota floor coating company, and the experience of owning a business has shaped how I think about leadership, risk, and responsibility.</p>
+      <h2>Outside of class</h2>
+      <p>I enjoy spending time with friends, playing and watching sports, working out, and games. I'm driven and competitive, and I like having something to work toward.</p>
+    </div>
+  </div>
+</section>
+</main>
+<footer class="site-footer" id="contact">
+  <div class="wrap footer-inner">
+    <div>
+      <h2>Contact</h2>
+      <p>Questions about my portfolio? I'm glad to talk through any of it.</p>
+    </div>
+    <dl class="contact-list">
+      <dt>Email</dt><dd><a href="mailto:alex.siebenaler@mnsu.edu">alex.siebenaler@mnsu.edu</a></dd>
+      <dt>Personal</dt><dd><a href="mailto:ahsiebenaler@gmail.com">ahsiebenaler@gmail.com</a></dd>
+      <dt>Phone</dt><dd><a href="tel:+16512336082">651-233-6082</a></dd>
+      <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/alex-siebenaler" target="_blank" rel="noopener">alex-siebenaler</a></dd>
+    </dl>
+  </div>
+  <div class="wrap fine">Minnesota State University, Mankato Honors Program portfolio</div>
+</footer>
+<script>
+const t=document.querySelector('.nav-toggle'),n=document.getElementById('nav');
+t.addEventListener('click',()=>{const o=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',String(!o));n.classList.toggle('open',!o);});
+</script>
+</body>
+</html>
