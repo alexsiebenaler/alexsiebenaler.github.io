@@ -64,9 +64,9 @@ COMPETENCIES = {
             },
             {
                 "id": "business-owner",
-                "name": "Business owner, MN Apex Solutions",
+                "name": "Owner, MN Apex Solutions",
                 "level": "Application", "when": "Ongoing", "status": "progress",
-                "summary": "Running a Minnesota floor coating company, handling both the technical side of polyurea and polyaspartic systems and business development.",
+                "summary": "As owner of a Minnesota floor coating company, I manage the financial side of the business: keeping the books, pricing jobs and preparing bids, and tracking the company's financial performance.",
                 "reflection": None, "reflection_due": "HONR 475",
                 "artifacts": [],
             },
