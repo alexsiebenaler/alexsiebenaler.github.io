@@ -436,14 +436,7 @@ strengths = f"""<section class="plain plain-tight">
   </div>
 </section>"""
 
-research_intro = f"""<section class="plain plain-tight">
-  <div class="wrap strengths">
-    <div><h2>Getting started</h2><p>My HONR 201 worksheet introducing the research, scholarly and creative activity competency.</p></div>
-    <div class="btn-row">{doc_button("Intro to Research worksheet", "docs/intro-to-research-competency.pdf")}</div>
-  </div>
-</section>"""
-
 competency_page("leadership", strengths)
-competency_page("research", research_intro)
+competency_page("research")
 competency_page("intercultural")
 print("built")
