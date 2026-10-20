@@ -63,7 +63,7 @@ COMPETENCIES = {
                 "artifacts": [("Presentation slides", None), ("Product and photos", None)],
             },
             {
-                "id": "business-owner",
+                "id": "mn-apex-solutions",
                 "name": "Owner, MN Apex Solutions",
                 "level": "Application", "when": "Ongoing", "status": "progress",
                 "summary": "As owner of a Minnesota floor coating company, I manage the financial side of the business: keeping the books, pricing jobs and preparing bids, and tracking the company's financial performance.",
@@ -199,8 +199,8 @@ def media(photo, alt, art_key):
     return ART[art_key]
 
 
-def write(name, title, desc, body):
-    (ROOT / name).write_text(head(title, desc) + header(name) + body + FOOTER)
+def write(name, title, desc, body, active=None):
+    (ROOT / name).write_text(head(title, desc) + header(active or name) + body + FOOTER)
 
 
 # ---------------- Home
@@ -285,36 +285,83 @@ write("honors.html", "Honors Program | Alex Siebenaler", "Alex Siebenaler's Why 
 
 
 # ---------------- Competency pages
-def experience_block(key, x):
+LEVEL_LABEL = {"leadership": "Leadership", "research": "Research", "intercultural": "Intercultural"}
+for k in COMPETENCIES:
+    COMPETENCIES[k]["level_label"] = LEVEL_LABEL[k]
+
+
+def meta_line(x):
     when = f" · {e(x['when'])}" if x["when"] else ""
-    buttons = [doc_button("Reflection", x["reflection"])] + [doc_button(label, path) for label, path in x["artifacts"]]
-    placeholder = "" if x["reflection"] else (
-        f'<p class="placeholder">This will be reflection text. My reflection on this experience is being written for {e(x["reflection_due"])}.</p>')
+    return f'<p class="meta"><span class="status s-{x["status"]}">{STATUS_LABEL[x["status"]]}</span>{when}</p>'
+
+
+def experience_card(key, x):
+    """Summary card on the competency page, linking to the experience's own page."""
     return f"""<article class="feature" id="{x['id']}">
   <div class="feature-media">{media(x.get('photo'), x['name'], key)}</div>
   <div class="feature-card">
     <h2>{e(x['name'])}</h2>
     <h3>{e(COMPETENCIES[key]['level_label'])} {e(x['level'])}</h3>
-    <p class="meta"><span class="status s-{x['status']}">{STATUS_LABEL[x['status']]}</span>{when}</p>
+    {meta_line(x)}
     <p>{e(x['summary'])}</p>
-    {placeholder}
-    <div class="btn-row">{''.join(buttons)}</div>
+    <div class="btn-row"><a class="btn" href="{x['id']}.html">View experience</a></div>
   </div>
 </article>"""
 
 
-LEVEL_LABEL = {"leadership": "Leadership", "research": "Research", "intercultural": "Intercultural"}
-for k in COMPETENCIES:
-    COMPETENCIES[k]["level_label"] = LEVEL_LABEL[k]
+def experience_page(key, x):
+    c = COMPETENCIES[key]
+    if x["reflection"]:
+        reflection = f'<p>Read my full reflection on this experience.</p><div class="btn-row">{doc_button("Read reflection", x["reflection"])}</div>'
+    else:
+        reflection = (f'<p class="placeholder">This will be reflection text. My reflection on this experience '
+                      f'is being written for {e(x["reflection_due"])} and will be posted here.</p>'
+                      f'<div class="btn-row">{doc_button("Read reflection", None)}</div>')
+    if x["artifacts"]:
+        arts = "".join(f'<li><span>{e(label)}</span>{doc_button("Open", path)}</li>' for label, path in x["artifacts"])
+        artifacts = f'<ul class="artifact-list">{arts}</ul>'
+    else:
+        artifacts = '<p class="muted">Artifacts for this experience will be added here.</p>'
+    body = f"""<section class="page-title">
+  <div class="wrap">
+    <a class="back" href="{key}.html">Back to {e(c['title'])}</a>
+    <h1>{e(x['name'])}</h1>
+    <p class="kind">{e(c['level_label'])} {e(x['level'])}</p>
+    {meta_line(x)}
+  </div>
+</section>
+<section class="band">
+  <div class="wrap">
+    <article class="feature">
+      <div class="feature-media">{media(x.get('photo'), x['name'], key)}</div>
+      <div class="feature-card">
+        <h2>About this experience</h2>
+        <p>{e(x['summary'])}</p>
+        <h4>Reflection</h4>
+        {reflection}
+      </div>
+    </article>
+  </div>
+</section>
+<section class="plain">
+  <div class="wrap narrow">
+    <h2>Artifacts</h2>
+    {artifacts}
+  </div>
+</section>
+"""
+    write(f"{x['id']}.html", f"{x['name']} | Alex Siebenaler", f"{x['name']}: Alex Siebenaler's honors experience.", body, active=f"{key}.html")
 
 
 def competency_page(key, extra=""):
     c = COMPETENCIES[key]
     body = (page_title(c["title"], c["intro"]) + extra
             + '<section class="band"><div class="wrap features">'
-            + "".join(experience_block(key, x) for x in c["experiences"])
+            + "".join(experience_card(key, x) for x in c["experiences"])
             + "</div></section>")
     write(f"{key}.html", f"{c['title']} | Alex Siebenaler", f"Alex Siebenaler's {c['title']} experiences.", body)
+    for x in c["experiences"]:
+        experience_page(key, x)
 
 
 strengths = f"""<section class="plain plain-tight">

@@ -159,3 +159,15 @@ a.btn:hover { background: var(--indigo); border-color: var(--indigo); color: var
 .fine p { font-size: .8rem; color: var(--gray-4); }
 @media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; margin: 0 16px; } }
 @media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* Experience pages */
+.back { display: inline-block; font-size: .9rem; color: var(--gray-4); text-decoration: none; margin-bottom: 18px; }
+.back::before { content: "‹ "; }
+.back:hover { color: var(--mauve); text-decoration: underline; }
+.kind { font-size: 1.3rem !important; color: var(--text) !important; margin: 0 0 8px !important; }
+.page-title .meta { margin: 0; }
+.muted { color: var(--gray-4); }
+.artifact-list { list-style: none; margin: 8px 0 0; padding: 0; border-top: 1px solid var(--gray-1); }
+.artifact-list li { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--gray-1); flex-wrap: wrap; }
+.artifact-list .btn { min-width: 0; }
+@media (max-width: 520px) { .artifact-list li { flex-direction: column; align-items: flex-start; gap: 10px; } }
