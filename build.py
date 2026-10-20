@@ -54,7 +54,7 @@ COMPETENCIES = {
                 "level": "Application", "when": "Spring 2026 to present", "status": "progress",
                 "summary": "Leading Minnesota State Mankato's entrepreneurship club: running the officer team, planning meetings and events, and updating the club constitution.",
                 "reflection": None, "reflection_due": "HONR 475",
-                "artifacts": [],
+                "artifacts": [("Shark Tank event presentation", "docs/mec-shark-tank-presentation.pdf")],
             },
         ],
     },
