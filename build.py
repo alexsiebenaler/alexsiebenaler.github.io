@@ -130,7 +130,12 @@ COMPETENCIES = {
                 "level": "Application", "when": "2020 to present", "status": "complete",
                 "summary": "A relationship with a foreign exchange student that started in 2020 and continues today, documented through photos over the years and letters.",
                 "reflection": None, "reflection_due": "HONR 375",
-                "artifacts": [("Letters", None)],
+                "artifacts": [
+                    ("Letter: birthday card to Janis", "docs/exchange-letter-birthday-janis.pdf"),
+                    ("Letter: Easter thank-you to Jana and Andris", "docs/exchange-letter-easter-thank-you.pdf"),
+                    ("Letter: birthday card to Andris", "docs/exchange-letter-birthday-andris.pdf"),
+                    ("Menu of traditional Latvian dishes from a Latvian community event in the US", "docs/latvian-event-menu.pdf"),
+                ],
             },
             {
                 "id": "study-abroad",
