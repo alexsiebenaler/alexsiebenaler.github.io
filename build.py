@@ -44,6 +44,12 @@ COMPETENCIES = {
             },
             {
                 "id": "mec-president",
+                "photos": [
+                    ("images/mec-officers.jpg", "Maverick Entrepreneurship Club officer team"),
+                    ("images/mec-alex.jpg", "Representing the Maverick Entrepreneurship Club"),
+                    ("images/mec-event.jpg", "Maverick Entrepreneurship Club event"),
+                    ("images/mec-logo.jpg", "Maverick Entrepreneurship Club"),
+                ],
                 "name": "President, Maverick Entrepreneurship Club",
                 "level": "Application", "when": "Spring 2026 to present", "status": "progress",
                 "summary": "Leading Minnesota State Mankato's entrepreneurship club: running the officer team, planning meetings and events, and updating the club constitution.",
@@ -80,6 +86,12 @@ COMPETENCIES = {
             },
             {
                 "id": "mn-apex-solutions",
+                "photos": [
+                    ("images/apex-trailer.jpg", "MN Apex Solutions trailer"),
+                    ("images/apex-before-after.jpg", "Before and after a floor coating project"),
+                    ("images/apex-garage.jpg", "A finished garage floor"),
+                    ("images/apex-flake-detail.jpg", "Close-up of a flake floor finish"),
+                ],
                 "name": "Owner, MN Apex Solutions",
                 "level": "Application", "when": "Ongoing", "status": "progress",
                 "summary": "As owner of a Minnesota floor coating company, I manage the financial side of the business: keeping the books, pricing jobs and preparing bids, and tracking the company's financial performance.",
@@ -102,11 +114,23 @@ COMPETENCIES = {
         "experiences": [
             {
                 "id": "exchange-student",
+                "photos": [
+                    ("images/exchange-family.jpg", "Together with family"),
+                    ("images/exchange-christmas-card.jpg", "Our family Christmas card"),
+                    ("images/exchange-lawn.jpg", "Together at home"),
+                    ("images/exchange-kitchen.jpg", "Celebrating together"),
+                    ("images/exchange-food.jpg", "Sharing a meal"),
+                    ("images/exchange-pastries.jpg", "Homemade pastries"),
+                    ("images/exchange-dinner.jpg", "A dinner out"),
+                    ("images/exchange-jelgava.jpg", "Jelgava, Latvia"),
+                    ("images/exchange-flower-crowns-group.jpg", "Flower crowns in Latvia"),
+                    ("images/exchange-flower-crowns.jpg", "Flower crowns in Latvia"),
+                ],
                 "name": "Foreign exchange student experience",
                 "level": "Application", "when": "2020 to present", "status": "complete",
                 "summary": "A relationship with a foreign exchange student that started in 2020 and continues today, documented through photos over the years and letters.",
                 "reflection": None, "reflection_due": "HONR 375",
-                "artifacts": [("Letters", None), ("Photos over time", None)],
+                "artifacts": [("Letters", None)],
             },
             {
                 "id": "study-abroad",
@@ -221,7 +245,7 @@ def write(name, title, desc, body, active=None):
 
 
 # ---------------- Home
-DIR_PHOTO = {"leadership": "images/eide-bailly-logo.png", "research": "images/ibe-presentation.jpg"}
+DIR_PHOTO = {"leadership": "images/mec-officers.jpg", "research": "images/ibe-presentation.jpg", "intercultural": "images/exchange-flower-crowns-group.jpg"}
 DIRECTORY = [
     ("leadership", "Leadership", "Eide Bailly internship; Eide Bailly SLP; Maverick Entrepreneurship Club"),
     ("research", "Research", "CoreMotion (IBE); MN Apex Solutions; Mav Fund"),
