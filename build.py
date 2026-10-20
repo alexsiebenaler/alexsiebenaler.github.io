@@ -8,8 +8,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).parent
 
-PROFILE_IMG = "https://static.wixstatic.com/media/487fb0_4a9c69a3c9184f11ae457a221ec77599~mv2.jpg/v1/fill/w_800,h_800,al_t,q_85/IMG_2065.jpg"
-ABOUT_IMG = "https://static.wixstatic.com/media/487fb0_ee73f05dbf134b839bee34d99ba84827~mv2.jpg/v1/fill/w_840,h_800,al_c,q_85/IMG_2680.jpg"
+PROFILE_IMG = "images/headshot.jpg"
+ABOUT_IMG = "images/alex-stairs.jpg"
 
 HONORS_PAGES = [
     ("honors.html", "Honors Program"),
@@ -31,9 +31,11 @@ COMPETENCIES = {
                 "summary": "A spring internship with Eide Bailly, a regional accounting and advisory firm, applying what I learned in the classroom on real client work as part of a team.",
                 "reflection": None, "reflection_due": "HONR 375",
                 "artifacts": [("Internship credit reflection", None), ("Internship description", None)],
+                "photos": [("images/eide-bailly-logo.png", "Eide Bailly")],
             },
             {
                 "id": "eide-bailly-slp",
+                "photos": [("images/eide-bailly-logo.png", "Eide Bailly")],
                 "name": "Eide Bailly SLP",
                 "level": "Development", "when": "Summer 2025", "status": "complete",
                 "summary": "Eide Bailly's student program that introduced me to the firm, its people, and the professional skills expected in public accounting.",
@@ -60,7 +62,14 @@ COMPETENCIES = {
                 "level": "Application", "when": "", "status": "complete",
                 "summary": "The College of Business course where students build and run a real company, from researching a product idea through selling it and presenting results.",
                 "reflection": None, "reflection_due": "HONR 375",
-                "artifacts": [("Presentation slides", None), ("Product and photos", None)],
+                "artifacts": [("Team dynamics and MBTI analysis", "docs/ibe-team-dynamics-mbti.pdf"), ("Presentation slides", None)],
+                "photos": [
+                    ("images/ibe-presentation.jpg", "Presenting our company at the start of IBE"),
+                    ("images/ibe-org-chart.jpg", "Presenting the CoreMotion leadership team and org chart"),
+                    ("images/ibe-products.jpg", "The CoreMotion product line"),
+                    ("images/ibe-shaker.jpg", "CoreMotion shaker bottle product photo"),
+                    ("images/ibe-class.jpg", "Our IBE class"),
+                ],
             },
             {
                 "id": "mn-apex-solutions",
@@ -195,7 +204,8 @@ def page_title(title, intro):
 
 def media(photo, alt, art_key):
     if photo:
-        return f'<img src="{e(photo)}" alt="{e(alt)}" loading="lazy">'
+        cls = ' class="logo"' if "logo" in photo else ""
+        return f'<img src="{e(photo)}" alt="{e(alt)}"{cls} loading="lazy">'
     return ART[art_key]
 
 
@@ -204,6 +214,7 @@ def write(name, title, desc, body, active=None):
 
 
 # ---------------- Home
+DIR_PHOTO = {"leadership": "images/eide-bailly-logo.png", "research": "images/ibe-presentation.jpg"}
 DIRECTORY = [
     ("leadership", "Leadership", "Eide Bailly internship; Eide Bailly SLP; Maverick Entrepreneurship Club"),
     ("research", "Research", "Integrated Business Experience; MN Apex Solutions; Mav Fund"),
@@ -211,7 +222,7 @@ DIRECTORY = [
 ]
 
 cards = "".join(f"""<a class="dir-card" href="{k}.html">
-  <div class="dir-media">{ART[k]}</div>
+  <div class="dir-media">{media(DIR_PHOTO.get(k), t, k)}</div>
   <div class="dir-box"><h3>{e(t)}</h3><p>{e(d)}</p><span class="pill pill-olive">Read</span></div>
 </a>""" for k, t, d in DIRECTORY)
 
@@ -264,8 +275,8 @@ write("about.html", "About Me | Alex Siebenaler", "About Alex Siebenaler: majors
 
 # ---------------- Honors Program
 essays = [
-    ("HONR 201 Why Honors essay", "Written in Fall 2024, my first semester in the program.", None),
-    ("HONR 375 Why Honors essay", "Written in Fall 2026, looking back on what Honors has meant so far.", None),
+    ("HONR 201 Why Honors essay", "Written in Fall 2024, my first semester in the program.", "docs/why-honors-201.pdf"),
+    ("HONR 375 Why Honors essay", "Written in Fall 2026, looking back on what Honors has meant so far.", "docs/why-honors-375.pdf"),
     ("Honors synthesis essay", "My final reflection tying all eight experiences together, written in HONR 475.", None),
 ]
 essay_cards = "".join(f'<article class="essay-card"><h3>{e(t)}</h3><p>{e(d)}</p>{doc_button("Read essay", p)}</article>' for t, d, p in essays)
@@ -290,6 +301,18 @@ for k in COMPETENCIES:
     COMPETENCIES[k]["level_label"] = LEVEL_LABEL[k]
 
 
+def first_photo(x):
+    return x["photos"][0][0] if x.get("photos") else None
+
+
+def gallery(x):
+    pics = [p for p in x.get("photos", []) if "logo" not in p[0]]
+    if len(pics) < 2:
+        return ""
+    figs = "".join(f'<figure><a href="{e(src)}" target="_blank" rel="noopener"><img src="{e(src)}" alt="{e(cap)}" loading="lazy"></a><figcaption>{e(cap)}</figcaption></figure>' for src, cap in pics[1:])
+    return f'<section class="plain plain-tight"><div class="wrap"><h2>Photos</h2><div class="gallery">{figs}</div></div></section>'
+
+
 def meta_line(x):
     when = f" · {e(x['when'])}" if x["when"] else ""
     return f'<p class="meta"><span class="status s-{x["status"]}">{STATUS_LABEL[x["status"]]}</span>{when}</p>'
@@ -298,7 +321,7 @@ def meta_line(x):
 def experience_card(key, x):
     """Summary card on the competency page, linking to the experience's own page."""
     return f"""<article class="feature" id="{x['id']}">
-  <div class="feature-media">{media(x.get('photo'), x['name'], key)}</div>
+  <div class="feature-media">{media(first_photo(x), x['name'], key)}</div>
   <div class="feature-card">
     <h2>{e(x['name'])}</h2>
     <h3>{e(COMPETENCIES[key]['level_label'])} {e(x['level'])}</h3>
@@ -333,7 +356,7 @@ def experience_page(key, x):
 <section class="band">
   <div class="wrap">
     <article class="feature">
-      <div class="feature-media">{media(x.get('photo'), x['name'], key)}</div>
+      <div class="feature-media">{media(first_photo(x), x['name'], key)}</div>
       <div class="feature-card">
         <h2>About this experience</h2>
         <p>{e(x['summary'])}</p>
@@ -349,7 +372,7 @@ def experience_page(key, x):
     {artifacts}
   </div>
 </section>
-"""
+{gallery(x)}"""
     write(f"{x['id']}.html", f"{x['name']} | Alex Siebenaler", f"{x['name']}: Alex Siebenaler's honors experience.", body, active=f"{key}.html")
 
 
@@ -364,14 +387,26 @@ def competency_page(key, extra=""):
         experience_page(key, x)
 
 
+TOP_STRENGTHS = ["Competition", "Focus", "Positivity", "Achiever", "Significance"]
 strengths = f"""<section class="plain plain-tight">
   <div class="wrap strengths">
-    <div><h2>StrengthsFinder results</h2><p>My top five CliftonStrengths themes and the reports that explain them.</p></div>
-    <div class="btn-row">{doc_button("Signature Themes report", None)}{doc_button("Strengths Insight Guide", None)}</div>
+    <div>
+      <h2>StrengthsFinder results</h2>
+      <p>My top five CliftonStrengths themes, in order:</p>
+      <ol class="themes">{''.join(f"<li>{t}</li>" for t in TOP_STRENGTHS)}</ol>
+    </div>
+    <div class="btn-row">{doc_button("Signature Themes report", "docs/strengths-signature-themes.pdf")}{doc_button("Strengths Insight Guide", None)}{doc_button("Intro to Leadership worksheet", "docs/intro-to-leadership-competency.pdf")}</div>
+  </div>
+</section>"""
+
+research_intro = f"""<section class="plain plain-tight">
+  <div class="wrap strengths">
+    <div><h2>Getting started</h2><p>My HONR 201 worksheet introducing the research, scholarly and creative activity competency.</p></div>
+    <div class="btn-row">{doc_button("Intro to Research worksheet", "docs/intro-to-research-competency.pdf")}</div>
   </div>
 </section>"""
 
 competency_page("leadership", strengths)
-competency_page("research")
+competency_page("research", research_intro)
 competency_page("intercultural")
 print("built")
