@@ -446,7 +446,7 @@ strengths = f"""<section class="plain plain-tight">
       <p>My top five CliftonStrengths themes, in order:</p>
       <ol class="themes">{''.join(f"<li>{t}</li>" for t in TOP_STRENGTHS)}</ol>
     </div>
-    <div class="btn-row">{doc_button("Signature Themes report", "docs/strengths-signature-themes.pdf")}{doc_button("Strengths Insight Guide", "docs/strengths-insight-guide.pdf")}{doc_button("Intro to Leadership worksheet", "docs/intro-to-leadership-competency.pdf")}</div>
+    <div class="btn-row">{doc_button("Signature Themes report", "docs/strengths-signature-themes.pdf")}{doc_button("Strengths Insight Guide", "docs/strengths-insight-guide.pdf")}</div>
   </div>
 </section>"""
 
