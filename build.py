@@ -314,7 +314,7 @@ about = f"""{page_title("About Me", "A junior at Minnesota State University, Man
 </section>
 """
 ABOUT_PHOTOS = [
-    ("images/about-race.jpg", "After finishing a race"),
+    ("images/about-race.jpg", "Sub-4-hour marathon finish"),
     ("images/about-skydiving.jpg", "Skydiving"),
     ("images/about-mountains.jpg", "Hiking in the mountains"),
     ("images/about-luxembourg.jpg", "Luxembourg City"),
