@@ -236,6 +236,11 @@ def page_title(title, intro):
 def media(photo, alt, art_key):
     if photo:
         cls = ' class="logo"' if "logo" in photo else ""
+        if not cls and (ROOT / photo).exists():
+            from PIL import Image
+            w, h = Image.open(ROOT / photo).size
+            if h > w:  # portrait photos: show the whole picture instead of cropping
+                cls = ' class="portrait"'
         return f'<img src="{e(photo)}" alt="{e(alt)}"{cls} loading="lazy">'
     return ART[art_key]
 
