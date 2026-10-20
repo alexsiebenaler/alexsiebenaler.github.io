@@ -313,6 +313,15 @@ about = f"""{page_title("About Me", "A junior at Minnesota State University, Man
   </div>
 </section>
 """
+ABOUT_PHOTOS = [
+    ("images/about-race.jpg", "After finishing a race"),
+    ("images/about-skydiving.jpg", "Skydiving"),
+    ("images/about-mountains.jpg", "Hiking in the mountains"),
+    ("images/about-luxembourg.jpg", "Luxembourg City"),
+]
+about += '<section class="plain"><div class="wrap"><h2>Outside the classroom</h2><div class="gallery">' + "".join(
+    f'<figure><a href="{src}" target="_blank" rel="noopener"><img src="{src}" alt="{e(cap)}" loading="lazy"></a><figcaption>{e(cap)}</figcaption></figure>'
+    for src, cap in ABOUT_PHOTOS) + "</div></div></section>"
 write("about.html", "About Me | Alex Siebenaler", "About Alex Siebenaler: majors, goals and interests.", about)
 
 # ---------------- Honors Program
