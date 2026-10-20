@@ -26,11 +26,11 @@ COMPETENCIES = {
         "experiences": [
             {
                 "id": "eide-bailly-internship",
-                "name": "Eide Bailly internship",
+                "name": "Audit intern, Eide Bailly",
                 "level": "Application", "when": "Spring 2026", "status": "complete",
-                "summary": "A spring internship with Eide Bailly, a regional accounting and advisory firm, applying what I learned in the classroom on real client work as part of a team.",
+                "summary": "An audit internship at Eide Bailly LLP, where I assisted with audits, reviews, and compilations for clients ranging from a few million to billions of dollars in revenue. I worked mainly in cash, accounts receivable, accounts payable, and equity, reported to senior associates and managers, and managed several client engagements at once.",
                 "reflection": None, "reflection_due": "HONR 375",
-                "artifacts": [("Internship credit reflection", None), ("Internship description", None)],
+                "artifacts": [("Internship credit reflection", "docs/eide-bailly-internship-credit-reflection.pdf")],
                 "photos": [("images/eide-bailly-team.jpg", "With my Eide Bailly team during my internship"), ("images/eide-bailly-logo.png", "Eide Bailly")],
             },
             {
@@ -252,7 +252,7 @@ def write(name, title, desc, body, active=None):
 # ---------------- Home
 DIR_PHOTO = {"leadership": "images/mec-officers.jpg", "research": "images/ibe-presentation.jpg", "intercultural": "images/exchange-flower-crowns-group.jpg"}
 DIRECTORY = [
-    ("leadership", "Leadership", "Eide Bailly internship; Eide Bailly SLP; Maverick Entrepreneurship Club"),
+    ("leadership", "Leadership", "Eide Bailly audit internship; Eide Bailly SLP; Maverick Entrepreneurship Club"),
     ("research", "Research", "CoreMotion (IBE); MN Apex Solutions; Mav Fund"),
     ("intercultural", "Intercultural Engagement", "Foreign exchange student experience; study abroad in Marseille"),
 ]
@@ -267,9 +267,10 @@ home = f"""<section class="hello">
     <figure class="hello-photo"><img src="{PROFILE_IMG}" alt="Alex Siebenaler" width="420" height="420"></figure>
     <div class="hello-text">
       <h1>Hello</h1>
-      <h2>A bit about me</h2>
-      <p>I'm Alex Siebenaler, an Honors student at Minnesota State University, Mankato, studying quantitative finance and accounting. I expect to graduate in Spring 2028. This portfolio collects the experiences that have shaped me and my reflections on what each one taught me.</p>
-      <p>Mission statement: to graduate and build a career in quantitative finance and accounting, while staying grounded in four values: growth and development, individualism, personal well-being, and belonging.</p>
+      <h2>Welcome to my Honors portfolio</h2>
+      <p>This is the honors portfolio I have created through the Honors Program at Minnesota State University, Mankato. I'm Alex Siebenaler, a quantitative finance and accounting student graduating in Spring 2028. This portfolio showcases the experiences that have helped me develop as a leader, a researcher, and a member of a global community, from my audit internship at Eide Bailly to leading CoreMotion as CEO, along with my reflections on what each one taught me.</p>
+      <h2>My mission</h2>
+      <p>My mission is to graduate, build a career in quantitative finance and accounting, and grow into a trusted professional in my field by understanding and developing my core values of growth and development, individualism, personal well-being, and belonging, all while making a meaningful impact on my community, my family, and my future.</p>
       <div class="pill-row"><a class="pill pill-mauve" href="honors.html">Honors</a><a class="pill pill-gold" href="about.html">About Me</a></div>
     </div>
   </div>
