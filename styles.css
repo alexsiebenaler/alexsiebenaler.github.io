@@ -183,3 +183,4 @@ a.btn:hover { background: var(--indigo); border-color: var(--indigo); color: var
 .themes li::before { content: counter(t) ". "; color: var(--mauve); font-weight: 600; }
 .hello-photo img { object-position: 50% 15%; }
 .hello-photo img { box-shadow: 0 0 0 1px var(--gray-1), 0 0 0 10px var(--white), 0 0 0 11px var(--gray-1); }
+.gallery img[src$=".png"] { object-fit: contain; background: var(--white); border: 1px solid var(--gray-1); }

@@ -31,7 +31,7 @@ COMPETENCIES = {
                 "summary": "A spring internship with Eide Bailly, a regional accounting and advisory firm, applying what I learned in the classroom on real client work as part of a team.",
                 "reflection": None, "reflection_due": "HONR 375",
                 "artifacts": [("Internship credit reflection", None), ("Internship description", None)],
-                "photos": [("images/eide-bailly-logo.png", "Eide Bailly")],
+                "photos": [("images/eide-bailly-team.jpg", "With my Eide Bailly team during my internship"), ("images/eide-bailly-logo.png", "Eide Bailly")],
             },
             {
                 "id": "eide-bailly-slp",
@@ -58,16 +58,23 @@ COMPETENCIES = {
         "experiences": [
             {
                 "id": "ibe",
-                "name": "Integrated Business Experience (IBE)",
-                "level": "Application", "when": "", "status": "complete",
-                "summary": "The College of Business course where students build and run a real company, from researching a product idea through selling it and presenting results.",
+                "name": "CEO, CoreMotion (Integrated Business Experience)",
+                "level": "Application", "when": "Fall 2025", "status": "complete",
+                "summary": "In the College of Business's Integrated Business Experience, our 16-person class built and ran CoreMotion, a fitness product company. As CEO, I delegated tasks and kept the company on track, managed community relationships, and built and ran our Shopify store. Starting from a $4,500 loan, we reached $7,117 in sales and $2,617 in profit, and volunteered 170 hours in the community.",
                 "reflection": None, "reflection_due": "HONR 375",
-                "artifacts": [("Team dynamics and MBTI analysis", "docs/ibe-team-dynamics-mbti.pdf"), ("Presentation slides", None)],
+                "artifacts": [
+                    ("Final company presentation", "docs/coremotion-final-presentation.pdf"),
+                    ("Company introduction presentation", "docs/coremotion-intro-presentation.pdf"),
+                    ("Team dynamics and MBTI analysis", "docs/ibe-team-dynamics-mbti.pdf"),
+                ],
                 "photos": [
                     ("images/ibe-presentation.jpg", "Presenting our company at the start of IBE"),
-                    ("images/ibe-org-chart.jpg", "Presenting the CoreMotion leadership team and org chart"),
+                    ("images/coremotion-org-chart.png", "CoreMotion organizational chart"),
+                    ("images/ibe-org-chart.jpg", "Presenting the CoreMotion leadership team"),
                     ("images/ibe-products.jpg", "The CoreMotion product line"),
                     ("images/ibe-shaker.jpg", "CoreMotion shaker bottle product photo"),
+                    ("images/ibe-rake-the-town.jpg", "Volunteering at Rake the Town"),
+                    ("images/coremotion-brand.png", "The CoreMotion brand"),
                     ("images/ibe-class.jpg", "Our IBE class"),
                 ],
             },
@@ -217,7 +224,7 @@ def write(name, title, desc, body, active=None):
 DIR_PHOTO = {"leadership": "images/eide-bailly-logo.png", "research": "images/ibe-presentation.jpg"}
 DIRECTORY = [
     ("leadership", "Leadership", "Eide Bailly internship; Eide Bailly SLP; Maverick Entrepreneurship Club"),
-    ("research", "Research", "Integrated Business Experience; MN Apex Solutions; Mav Fund"),
+    ("research", "Research", "CoreMotion (IBE); MN Apex Solutions; Mav Fund"),
     ("intercultural", "Intercultural Engagement", "Foreign exchange student experience; study abroad in Marseille"),
 ]
 
@@ -395,7 +402,7 @@ strengths = f"""<section class="plain plain-tight">
       <p>My top five CliftonStrengths themes, in order:</p>
       <ol class="themes">{''.join(f"<li>{t}</li>" for t in TOP_STRENGTHS)}</ol>
     </div>
-    <div class="btn-row">{doc_button("Signature Themes report", "docs/strengths-signature-themes.pdf")}{doc_button("Strengths Insight Guide", None)}{doc_button("Intro to Leadership worksheet", "docs/intro-to-leadership-competency.pdf")}</div>
+    <div class="btn-row">{doc_button("Signature Themes report", "docs/strengths-signature-themes.pdf")}{doc_button("Strengths Insight Guide", "docs/strengths-insight-guide.pdf")}{doc_button("Intro to Leadership worksheet", "docs/intro-to-leadership-competency.pdf")}</div>
   </div>
 </section>"""
 
