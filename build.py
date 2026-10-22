@@ -67,7 +67,7 @@ COMPETENCIES = {
                 "name": "CEO, CoreMotion (Integrated Business Experience)",
                 "level": "Application", "when": "Fall 2025", "status": "complete",
                 "summary": "In the College of Business's Integrated Business Experience, our 16-person class built and ran CoreMotion, a fitness product company. As CEO, I delegated tasks and kept the company on track, managed community relationships, and built and ran our Shopify store. Starting from a $4,500 loan, we reached $7,117 in sales and $2,617 in profit, and volunteered 170 hours in the community.",
-                "reflection": None, "reflection_due": "HONR 375",
+                "reflection": "docs/ibe-reflection.pdf", "reflection_due": "HONR 375",
                 "artifacts": [
                     ("Final company presentation", "docs/coremotion-final-presentation.pdf"),
                     ("Company introduction presentation", "docs/coremotion-intro-presentation.pdf"),
@@ -129,7 +129,7 @@ COMPETENCIES = {
                 "name": "Foreign exchange student experience",
                 "level": "Application", "when": "2020 to present", "status": "complete",
                 "summary": "A relationship with a foreign exchange student that started in 2020 and continues today, documented through photos over the years and letters.",
-                "reflection": None, "reflection_due": "HONR 375",
+                "reflection": "docs/exchange-student-reflection.pdf", "reflection_due": "HONR 375",
                 "artifacts": [
                     ("Letter: birthday card to Janis", "docs/exchange-letter-birthday-janis.pdf"),
                     ("Letter: Easter thank-you to Jana and Andris", "docs/exchange-letter-easter-thank-you.pdf"),
