@@ -31,7 +31,8 @@ COMPETENCIES = {
                 "summary": "An audit internship at Eide Bailly LLP, where I assisted with audits, reviews, and compilations for clients ranging from a few million to billions of dollars in revenue. I worked mainly in cash, accounts receivable, accounts payable, and equity, reported to senior associates and managers, and managed several client engagements at once.",
                 "reflection": None, "reflection_due": "HONR 375",
                 "artifacts": [("Internship credit reflection", "docs/eide-bailly-internship-credit-reflection.pdf")],
-                "photos": [("images/eide-bailly-team.jpg", "With my Eide Bailly team during my internship"), ("images/eide-bailly-logo.png", "Eide Bailly")],
+                "photos": [("images/eide-bailly-team.jpg", "Eide Bailly company volunteering event"), ("images/eide-bailly-logo.png", "Eide Bailly")],
+                "gallery_all": True,
             },
             {
                 "id": "eide-bailly-slp",
@@ -358,8 +359,12 @@ def first_photo(x):
 
 def gallery(x):
     pics = [p for p in x.get("photos", []) if "logo" not in p[0]]
-    if len(pics) < 2:
-        return ""
+    if not x.get("gallery_all"):
+        if len(pics) < 2:
+            return ""
+        pics = [None] + pics[1:]
+    else:
+        pics = [None] + pics
     figs = "".join(f'<figure><a href="{e(src)}" target="_blank" rel="noopener"><img src="{e(src)}" alt="{e(cap)}" loading="lazy"></a><figcaption>{e(cap)}</figcaption></figure>' for src, cap in pics[1:])
     return f'<section class="plain plain-tight"><div class="wrap"><h2>Photos</h2><div class="gallery">{figs}</div></div></section>'
 
